@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Blunders</title>
+
+    <link rel="stylesheet" href="/static/css/normalize.css">
+    <link rel="stylesheet" href="/static/css/skeleton.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="twelve column" style="min-height:10vh"></div>
+        </div>
+    </div>
+    <div class="container parchment">
+        <div class="row">
+            <div class="twelve column">
+                <div id="index" class="box">
+                    <div class="box-inner">
+                        <h1 class="title font-ruthie"><span>I</span>ndex</span></h1>
+                        <ul>
+                            {{ range $i, $index := .Index }}
+                            <li class="index-item"><a class="font-gideon" href="#{{ add $i 1 }}">{{ add $i 1 }}: {{ $index }}</a></li>
+                            {{ end }}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="twelve column">
+                <div id="content">
+                    {{ range $i, $content := .Content }}
+                    <div id="{{ add $i 1 }}" class="section">
+                        <h1 class="section-title"><span class="font-wmorris">C</span>hapter&nbsp;&nbsp;<span class="font-gideon">{{ add $i 1 }}</span></h1>
+                        <h2 class="chapter-title font-gideon">{{ $content.Title }}</h2>
+                        {{ range $verses := $content.Verses }}
+                        <div class="verse">
+                            <h5>{{ $verses.Title }}</h5>
+                            <p>
+                                {{ range $verses.Pre }}
+                                <span>{{ . }}</span><br>
+                                {{ end }}
+                                "<em>{{ $verses.Verse }}"</em>
+                                - <small>{{ $verses.Reference | replace "," ", " }}</small><br>
+                                {{ range $verses.Post }}
+                                <span>{{ . }}</span>
+                                {{ end }}
+                            </p>
+                        </div>
+                        {{ end }}
+                    </div>
+                    <span class="cool-hr">
+                        <hr />
+                    </span>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <svg style="display: none;">
+        <filter id="wavy2">
+            <feturbulence x="0" y="0" baseFrequency="0.02" numOctaves="5" seed="1"></feturbulence>
+            <feDisplacementMap in="SourceGraphic" scale="20" />
+        </filter>
+    </svg>
+</body>
+
+</html>
