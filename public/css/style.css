@@ -10,6 +10,10 @@
   src: url("/static/fonts/WMORRIS.ttf");
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   width: 100%;
@@ -23,6 +27,17 @@ body {
 a {
   color: #121212;
   text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: #373636;
 }
 
 p {
@@ -208,4 +223,153 @@ li {
 
 .chapter-title {
   font-weight: bold;
+}
+
+.decoration {
+  position: relative;
+  margin-top: 60px;
+}
+
+.decoration .content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 85vh;
+  flex-direction: column;
+}
+
+.decoration .content .main-title {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.decoration .content .main-subtitle {
+  text-align: center;
+}
+
+.corner-decoration {
+  position: absolute;
+  width: 6em;
+  margin: -3px;
+  filter: brightness(0.5);
+}
+
+.corner-decoration.corner-left-top {
+  left: 0;
+}
+
+.corner-decoration.corner-right-top {
+  top: 0;
+  right: 0;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+.corner-decoration.corner-right-bottom {
+  right: 0;
+  bottom: 0;
+  -webkit-transform: scale(-1);
+  transform: scale(-1);
+}
+
+.corner-decoration.corner-left-bottom {
+  left: 0;
+  bottom: 0;
+  -webkit-transform: scaleY(-1);
+  transform: scaleY(-1);
+}
+
+.vertical-decoration {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 30em;
+  filter: brightness(0.5);
+}
+
+.vertical-decoration.top {
+  top: 0;
+}
+
+.vertical-decoration.bottom {
+  bottom: 0;
+  -webkit-transform: scaleY(-1);
+  transform: scaleY(-1);
+}
+
+@media screen and (max-width: 1024px) {
+  .vertical-decoration {
+    width: 25em;
+  }
+  .corner-decoration {
+    width: 5em;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .parchment::before {
+    filter: none;
+    padding: 0;
+  }
+  .vertical-decoration {
+    width: 22em;
+  }
+  .corner-decoration {
+    width: 4em;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .vertical-decoration {
+    width: 15em;
+  }
+  .corner-decoration {
+    width: 3em;
+  }
+  #index {
+    font-size: 2rem;
+  }
+  .decoration .content .main-title {
+    font-size: 5rem;
+    text-align: center;
+  }
+  .decoration .content .main-subtitle {
+    text-align: center;
+    font-size: 2.8rem;
+  }
+  .box {
+    width: auto;
+  }
+  .box .box-inner {
+    padding: 25px;
+  }
+  .section-title {
+    font-size: 5rem;
+  }
+  .section-title span {
+    font-size: 10rem;
+  }
+  .chapter-title {
+    font-size: 3rem;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 375px) {
+}
+
+@media screen and (max-width: 320px) {
+  .vertical-decoration {
+    width: 12em;
+  }
+  .corner-decoration {
+    width: 2.2em;
+  }
+  .section-title span {
+    font-size: 6rem;
+  }
+  .chapter-title {
+    font-size: 2.5rem;
+  }
 }

@@ -13,12 +13,24 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="twelve column" style="min-height:10vh"></div>
-        </div>
-    </div>
     <div class="container parchment">
+        <div class="row">
+            <div class="twelve column" style="min-height: 85vh;">
+                <div class="decoration" style="min-height: 85vh;">
+                    <img class="corner-decoration corner-left-top" src="/static/images/corner-decoration.png"></img>
+                    <img class="vertical-decoration top" src="/static/images/horizontal-decoration.png"></img>
+                    <img class="corner-decoration corner-right-top" src="/static/images/corner-decoration.png"></img>
+                    <img class="corner-decoration corner-left-bottom" src="/static/images/corner-decoration.png"></img>
+                    <img class="vertical-decoration bottom" src="/static/images/horizontal-decoration.png"></img>
+                    <img class="corner-decoration corner-right-bottom" src="/static/images/corner-decoration.png"></img>
+                    <div class="content">
+                        <h1 class="main-title font-gideon"><span>B</span>ible <span>B</span>lunders</h1>
+                        <h4 class="main-subtitle font-bilbo">"And ye shall know the truth, and the truth shall make you free."<small class="">- John 8:32</small></h4>
+                        <h5 class="font-gideon"><small>Based on the works of <strong>Ahmed Deedat</strong></small></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="twelve column">
                 <div id="index" class="box">
@@ -70,6 +82,9 @@
             <feDisplacementMap in="SourceGraphic" scale="20" />
         </filter>
     </svg>
+
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/script.js"></script>
 </body>
 
 </html>
